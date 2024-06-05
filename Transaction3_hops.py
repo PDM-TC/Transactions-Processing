@@ -15,6 +15,7 @@ def transaction3(productId, Quantity):
     start_time = time.time()
 
     def t3_hop1():
+        print("T3: Hop 1 started")
         flag = False
         try:
             exists = db2.products.find_one({"product_id": productId})
@@ -27,19 +28,20 @@ def transaction3(productId, Quantity):
                     {"product_id": productId}, {"$set": {"quantity": Quantity}}
                 )
                 if result:
-                    print("Transaction 3 - Hop 1 is successfully committed")
+                    print("T3: Hop 1 ended")
                     print(f"The previous value {previous_val} and the current value is {Quantity}")
                     T3_hop1_Time = time.time()
                     print(
-                        f"Time taken to execute the first hop: {T3_hop1_Time-start_time} seconds"
+                        f"Time taken to execute T3 Hop 1: {T3_hop1_Time-start_time} seconds"
                     )
                     while not flag:
                         flag = t3_hop2()
         except Exception as e:
-            print(f"t3- First hop aborts - {e}")
+            print(f"T3 hop 1 aborts - {e}")
             return
 
     def t3_hop2():
+        print("T3: Hop 2 started")
         T3_hop2_Time = time.time()
         flag = False
         try:
@@ -47,15 +49,13 @@ def transaction3(productId, Quantity):
                 {"product_id": productId}, {"$set": {"quantity": Quantity}}
             )
             if result:
-                print(
-                    "Transaction 3 - Hop 2 is successfully committed and accessed node 3"
-                )
+                print("T3: Hop 2 ended")
                 print(
                     f"Time taken to execute the first hop: {T3_hop2_Time-start_time} seconds"
                 )
                 flag = True
         except Exception as e:
-            print(f"t3 hop2 did not commit, re-run: {e}")
+            print(f"T3 Hop 3 aborts, re-run: {e}")
         return flag
 
     t3_hop1()
@@ -63,5 +63,3 @@ def transaction3(productId, Quantity):
     return start_time, end_time
 
 
-start_time, end_time = transaction3(561, 50)
-print(f"Total time taken by the transaction {end_time-start_time} seconds")
