@@ -14,11 +14,7 @@ db3 = client3.OrderInformation
 def transaction3(productId, Quantity):
     start_time = time.time()
     def t3_hop1():
-<<<<<<< HEAD
         print("Started Hop_1 for transaction 3")
-=======
-        print("T3: Hop 1 started")
->>>>>>> d10f971f7237e51f6fc507abd0e5ee4e7c7df850
         flag = False
         try:
             exists = db2.products.find_one({"product_id": productId})
