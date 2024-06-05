@@ -18,6 +18,7 @@ def transaction3(productId, Quantity):
         flag = False
         try:
             exists = db2.products.find_one({"product_id": productId})
+            previous_val = exists['quantity']
             if not exists:
                 print("Product not present")
                 return
@@ -27,6 +28,7 @@ def transaction3(productId, Quantity):
                 )
                 if result:
                     print("Transaction 3 - Hop 1 is successfully committed")
+                    print(f"The previous value {previous_val} and the current value is {Quantity}")
                     T3_hop1_Time = time.time()
                     print(
                         f"Time taken to execute the first hop: {T3_hop1_Time-start_time} seconds"
@@ -61,5 +63,5 @@ def transaction3(productId, Quantity):
     return start_time, end_time
 
 
-start_time, end_time = transaction3(561, 45)
+start_time, end_time = transaction3(561, 50)
 print(f"Total time taken by the transaction {end_time-start_time} seconds")
