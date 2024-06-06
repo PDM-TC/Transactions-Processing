@@ -1,0 +1,85 @@
+python threadScheduling.py
+Transaction_1 : Started
+Transaction_1 : Hop_1 - Started.
+Transaction_2 : Started
+Transaction_2 : Started - Node_1 : ['T1']
+Transaction_2 : Started - Node_2 : ['T2']
+Transaction_3 : Started
+Transaction_2 : Started - Node_3 : ['T2']
+Transaction_3 : Hop_1 - Started
+Transaction_3 : Started - Node_1 : ['T1']
+Transaction_3 : Started - Node_2 : ['T2', 'T3']
+Transaction_3 : Started - Node_3 : ['T2', 'T3']
+Transaction_2 : Hop_1 - Started
+['T2', 'T3']
+Transaction_4 : Started
+Transaction_4 : Hop_1 - Started
+Transaction_4 : Started - Node_1 : ['T1']
+Transaction_5 : Started
+Transaction_5 : Hop_1 - Started
+Transaction_6 : Started
+Transaction_5 : Started - Node_1 : ['T1']
+Transaction_1 : The user already exists.
+Transaction_1 : Hop_1 - Successful - No need of further hops.
+Transaction_1 : Ended
+Transaction_6 : Hop_1 - Started
+Transaction_6 : Started - Node_1 : []
+Transaction_6 : Started - Node_2 : ['T2', 'T3', 'T4', 'T6']
+Transaction_4 : Started - Node_2 : ['T2', 'T3', 'T4']
+Transaction_4 : Started - Node_3 : ['T2', 'T3', 'T4']
+Transaction_1 : Total Time - 0.04 seconds.
+Transaction_6 : Started - Node_3 : ['T2', 'T3', 'T4']
+Transaction_5 : Started - Node_2 : ['T2', 'T3', 'T4', 'T6']
+Transaction_5 : Started - Node_3 : ['T2', 'T3', 'T4']
+Transaction_2 : Hop_1 - Successful
+Transaction_5 : Hop_1 - Successful
+The previous email was new_email@example.com and the new email is new_email@example.com
+Transaction_5 : Ended
+Transaction_5 : Ended - Node_1 : []
+Transaction_5 : Ended - Node_2 : ['T3', 'T4', 'T6']
+Transaction_5 : Ended - Node_3 : ['T2', 'T3', 'T4']
+Transaction_5 : Total Time - 0.06 seconds
+Transaction_3 : The previous value is 44 and the current value is 10
+Transaction_3 : Hop_1 - Successful
+Transaction_2 : Hop_2 - Started
+Transaction_2 : Hop_2 - Successful
+Transaction_2 : Ended
+Transaction_2 : Ended - Node_1 : []
+Transaction_2 : Ended - Node_2 : ['T4', 'T6']
+Transaction_2 : Ended - Node_3 : ['T3', 'T4']
+Transaction_2 : Total Time -  3.07 seconds
+Transaction_3 : Hop_2 - Started
+Transaction_3 : Hop_2 - Successful
+Transaction_3 : Ended
+Transaction_3 : Ended - Node_1 : []
+Transaction_3 : Ended - Node_2 : ['T4', 'T6']
+Transaction_3 : Ended - Node_3 : ['T4']
+Transaction_3 : Total Time - 5.03 seconds
+Transaction_4 : Order 2 has been placed successfully in hop 1.
+Transaction_4 : Hop_1 - Successful
+Transaction_4 : Hop_2 - Started
+Transaction_4 : Product 1 quantity has been decremented by 2.
+Transaction_4 : Hop_2 - Successful
+Transaction_4 : Ended
+Transaction_4 : Ended - Node_1 : []
+Transaction_4 : Ended - Node_2 : ['T6', 'T4']
+Transaction_4 : Ended - Node_3 : []
+Transaction_4 : Total Time - 5.05 seconds
+T6 - First hop successful - Price updated
+The previous price was 1500.0 and the new price is 1500.0
+Transaction_6 : Ended
+Transaction_6 : Ended - Node_1 : []
+Transaction_6 : Ended - Node_2 : ['T4']
+Transaction_6 : Ended - Node_3 : []
+Transaction_6 : Total Time - 6.04 seconds
+
+ Hop execution time by Transaction_1 : []
+Hop execution time by Transaction_2 : [0.05159220000132336, 0.01344230000177049]
+Hop execution time by Transaction_3 : [1.0153013000017381, 4.0109588999985135]
+Hop execution time by Transaction_4 : [5.042291500001738, 0.0029925999988336116]
+Hop execution time by Transaction_5 : [0.03432849999808241]
+Hop execution time by Transaction_6 : [6.044031699999323]
+
+Hops execution on Node 1 : {'Transaction_5': 0.03432849999808241}
+Hops execution on Node 2 : {'Transaction_2': 0.05159220000132336, 'Transaction_3': 1.0153013000017381, 'Transaction_4': 0.0029925999988336116, 'Transaction_6': 6.044031699999323}
+Hops execution on Node 3 : {'Transaction_2': 0.01344230000177049, 'Transaction_3': 4.0109588999985135, 'Transaction_4': 5.042291500001738}
