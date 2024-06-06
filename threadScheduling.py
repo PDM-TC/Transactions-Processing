@@ -561,7 +561,7 @@ transaction4.join()
 transaction5.join()
 transaction6.join()
 
-print(f'\n Hop execution time by Transaction_1 : {transaction1.latencies}')
+print(f'\n Hop execution time by Transaction_1 : {transaction1.total_time}')
 print(f'Hop execution time by Transaction_2 : {transaction2.latencies}')
 print(f'Hop execution time by Transaction_3 : {transaction3.latencies}')
 print(f'Hop execution time by Transaction_4 : {transaction4.latencies}')
