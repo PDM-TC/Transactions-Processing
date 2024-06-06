@@ -25,10 +25,19 @@ users.insert_one({
 })
 print("Database has been created at localhost:27017")
 
+sellers = db1.sellers
+sellers.insert_one({
+    "seller_id": "s1",
+    "seller_name": "company_xyz",
+    "email": "company_xyz@.gmail.com",
+    "created_at": datetime.datetime.now()
+})
+
 # Node 2: Products collection with quantity
 products = db2.products
 products.insert_one({
     "product_id": 1,
+    "seller_id" : "s1",
     "name": "Laptop",
     "description": "High-end gaming laptop",
     "price": 1200.00,
