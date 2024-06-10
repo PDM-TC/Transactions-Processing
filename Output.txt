@@ -1,28 +1,18 @@
-python threadScheduling.py
-
 Transaction_1 : Started
-
 Transaction_2 : Started
-
 Transaction_1 : Hop_1 - Started. 
  Node_1 at the start of Transaction_1 : ['T1'] 
  Node_2 at the start of Transaction_1 : [] 
  Node_3 at the start of Transaction_1 : []
 Transaction_3 : Started
-
 Transaction_4 : Started
-
 Transaction_2 : Hop_1 - Started 
  Node_1 at the start of Transaction_2 : ['T1'] 
  Node_2 at the start of Transaction_2 : ['T2'] 
  Node_3 at the start of Transaction_2 : ['T2']
-
 Transaction_5 : Started
-
 Transaction_6 : Started
 Transaction_7 : Waiting!
-
-
 Transaction_5 : Hop_1 - Started  
  Node_1 at the start of Transaction_5 : ['T1', 'T5']  
  Node_2 at the start of Transaction_5 : ['T2', 'T4']  
@@ -31,55 +21,38 @@ Transaction_4 : Hop_1 - Started
  Node_1 at the start of Transaction_4 : ['T1'] 
  Node_2 at the start of Transaction_4 : ['T2', 'T4'] 
  Node_3 at the start of Transaction_4 : ['T2', 'T4']
-
 Transaction_3 : Hop_1 - Started 
  Node_1 at the start of Transaction_3 : ['T1', 'T5'] 
  Node_2 at the start of Transaction_3 : ['T2', 'T4', 'T6', 'T3'] 
  Node_3 at the start of Transaction_3 : ['T2', 'T4', 'T3']
-
-
 Transaction_6 : Hop_1 - Started
  Node_1 at the start of Transaction_6: ['T1', 'T5']
  Node_2 at the start of Transaction_6: ['T2', 'T4', 'T6']
  Node_3 at the start of Transaction_6: ['T2', 'T4']
-
 Transaction_4 : Hop_1 is waiting for T2 to complete on node_3!
-
-
 Transaction_6 is waiting for T2 to complete on node_2!
 Transaction_2 : Product already exists.
 Transaction_2 : Hop_1 - Successful - No need of further hops.
-
 Transaction_3 : Hop_1 is waiting for T2 to complete on node_2!
 Transaction_2 : Ended
  Node_1 at the end of transaction_2 : ['T1', 'T5']
  Node_2 at the end of transaction_2 : ['T4', 'T6', 'T3']
  Node_3 at the end of transaction_2 : ['T4', 'T3']
  Transaction_2 : Total Time -  0.07 seconds
-
-
 Transaction_1 : Hop_1 - Successful.
-
-Transaction_1 : Ended print
+Transaction_1 : Ended
   Node_1 at the end of Transaction_1 : ['T5']
  Node_2 at the start of Transaction_1 : ['T4', 'T6', 'T3']
  Node_3 at the start of Transaction_1 : ['T4', 'T3']
  Transaction_1 : Total Time - 0.1 seconds
-
-
-
 Transaction_5 : Hop_1 - Successful
-
 Transaction_5 : The previous email was martin@uci.edu and the new email is tanuja@example.com
-
 Transaction_5 : Ended
  Node_1 at the end of Transaction_5 : []
  Node_2 at the end of Transaction_5 : ['T4', 'T6', 'T3']
  Node_3 at the end of Transaction_5: ['T4', 'T3']
  Transaction_5 : Total Time - 0.2 seconds
-
 Transaction_7 : Waiting!
-
 Transaction_4 : Order 92 has been placed successfully in hop 1.
  Transaction_4 : Hop_1 - Successful
 Transaction_4 : Hop_2 - Started

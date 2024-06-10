@@ -106,6 +106,11 @@ class Transaction2(Thread):
                         print(f"\nTransaction_2 : Product already exists. \nTransaction_2 : Hop_1 - Successful - No need of further hops.")
                         node2_queue.remove('T2')
                         node3_queue.remove('T2')
+                        print(f"\nTransaction_2 : Hop_1 - Successful")
+                        hop_end = time.perf_counter()
+                        h1_latency = hop_end - hop_start
+                        Transaction2.latencies.append(h1_latency)
+                        node2['Transaction_2'] = h1_latency
                         break
                     else:
                         product = {
